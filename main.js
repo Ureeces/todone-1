@@ -11,32 +11,37 @@
 
 
 // Given a todo object, adds an item to our todo list.
-
+const addTodo = function(todo) {
+  todos.push(todo);
+}
 
 // Given a todo object, put it on the DOM. This is a pretty big function!
 const printTodo = function(todo) {
   // Use `document.createElement` to make an <li>, and set its text (preferably using `.innerText`) to be our given object's text field.
-
+  const newTodo = document.createElement(li);
+  newTodo.innerText = todo.text;
 
 
   // Query the ol and put it in a variable.
-
+  const todoList = document.querySelector('.todo-list');
 
 
   // Append the li we made to the ul as the last child using `.appendChild`. If this isn't working for you, check what is being appended to what!
-
+  todoList.appendChild(newTodo);
 
 
   // Give our new li a `todo-item` class using `classList`.
-
+  newTodo.classList.add('todo-item');
 
 
   // Give our new li an id that is the object's id. This is so that we have a matching relationship between todo node elements and their corresponding objects.
-
+  newTodo.id = todo.id;
 
 
   // Give the li a `complete` class if the todo object indicates it was complete already.
-
+  if(todo.isComplete) {
+    newTodo.classList.add('complete');
+  }
 
 
   // Give the <p> with the todo's text in it an event listener
@@ -50,7 +55,7 @@ const printTodo = function(todo) {
 
 
 // Print all todos. Loop through our todos array and call the above function on each one.
-
+todos.forEach(todo => printTodo(todo));
 
 
 // Call the above function immediately after you define it, so our todos array gets printed out on page load. This is the only time we're calling a function, the rest is event listeners and helper functions that run when the user interacts with the DOM!
