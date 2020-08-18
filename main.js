@@ -113,6 +113,8 @@ addTodoButton.addEventListener('click', function() {
   addTodo(newTodo);
   printTodo(newTodo);
 
+  const inputButton = document.querySelector('.todo-input');
+  inputButton.value = "";
 });
 
 /* 
