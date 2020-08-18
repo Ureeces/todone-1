@@ -122,7 +122,11 @@ addTodoButton.addEventListener('click', function() {
 Wire up your clear todos button. Give it an event listener that clears all todos from the DOM (we have a function for that!) and removes them all todo objects from the todos array as well.
 
 */
-
+const clearButton = document.querySelector('#reset-todos');
+clearButton.addEventListener('click', function() {
+  clearTodos();
+  todos.splice(0, todos.length);
+});
 
 
 // And you're DONE with a basic todo app! Next we'll make it very, very powerful.
